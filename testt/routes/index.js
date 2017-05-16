@@ -1,5 +1,6 @@
 var express = require('express');
 var oracledb = require('oracledb');
+var dbConfig = require('./dbconfig.js');
 var router = express.Router();
 oracledb.autoCommit = true;
 
@@ -8,11 +9,11 @@ var result = 0;
 var check = false;
 
 oracledb.getConnection(
-{
-	user          : "db01",
-	password      : "ss2",
-	connectString : "localhost/orcl"
-},
+    {
+        user          : dbConfig.user,
+        password      : dbConfig.password,
+        connectString : dbConfig.connectString
+    },
 function(err, connection){
 	if(err) {console.error(err.message); return; }
 	
