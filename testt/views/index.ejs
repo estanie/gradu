@@ -16,24 +16,13 @@
 			height: 100%;
 			position: relative;
 		}
-	</style>
-
+  </style>
   </head>
 
   <body>
-  	<div id="index_header">
-  		<p style="font-family: 'Terminal Dosis'; font-size: 1.5em"><b>SMWU</b></p>
-    </div>
-
-    <% include ../views/nav %>
-
-    <script type="text/javascript">
-    
-    </script>
-	<% include ../views/home %>
-
-    <div id="index_footer">
-    	copyright
-    </div>
+  	<% include ../views/include_layout/header %>
+    <% include ../views/include_layout/nav %>  	
+    <% include ../views/main_page %>    
+    <% include ../views/include_layout/footer %>
   </body>
 </html>
