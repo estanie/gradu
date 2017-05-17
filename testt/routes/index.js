@@ -40,21 +40,21 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/', function(req, res, next){
-	var 
-		user_id = req.body.log_id,
-		user_pw = req.body.log_pw;
+    var
+        user_id = req.body.log_id,
+        user_pw = req.body.log_pw;
 
-	if(log.id == user_id){
-	}
+    if(log.id == user_id){
+    }
 
-	if( (log.id == user_id) && (log.pw == user_pw)) {
-		console.log("<login>\n"+"SUCCESSS!\n");
-	  	res.render('index', { title: 'Express', check : 'true' });
-	}
-	else{
-		console.log("<login>\n"+"FAIL!\n");
-		res.render('home/login');
-	}
+    if( (log.id == user_id) && (log.pw == user_pw)) {
+        console.log("<login>\n"+"SUCCESSS!\n");
+        res.render('index', { title: 'Express', check : 'true' });
+    }
+    else{
+        console.log("<login>\n"+"FAIL!\n");
+        res.render('home/login');
+    }
 });
 
 module.exports = router;
