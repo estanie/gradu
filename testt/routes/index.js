@@ -11,11 +11,11 @@ var result = 0;
 var check = false;
 
 oracledb.getConnection(
-    {
-        user          : dbConfig.user,
-        password      : dbConfig.password,
-        connectString : dbConfig.connectString
-    },
+{
+    user          : dbConfig.user,
+    password      : dbConfig.password,
+    connectString : dbConfig.connectString
+},
 function(err, connection){
 	if(err) {console.error(err.message); return; }
 	
@@ -57,7 +57,6 @@ router.post('/', function(req, res, next){
 	}
 });
 
-
 router.post('/upload', function(req, res, next) {
       var form = new multiparty.Form();
 
@@ -65,7 +64,6 @@ router.post('/upload', function(req, res, next) {
       form.on('field',function(name,value){
            console.log('**원래 파일 / name = '+name+' , value = '+value);
       });
-
 
       // file upload handling
       form.on('part',function(part){
@@ -105,6 +103,5 @@ router.post('/upload', function(req, res, next) {
       form.parse(req);
 
 });
-
 
 module.exports = router;

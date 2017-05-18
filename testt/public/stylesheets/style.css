@@ -110,7 +110,7 @@ body{
 #index_header p{
   top: 3%;
 }
-#index_nav, #index_section, #index_a {
+#index_nav, #index_section, #index_div {
   top: 15%;
   height: 85%;
   position: relative;
@@ -129,7 +129,7 @@ body{
   border-radius: 0px 25px;
 }
 
-#index_a {
+#index_div {
   float: left;
   background-color: #e6e6e6;  
   width: 3%;
@@ -160,3 +160,6 @@ body{
 
 #main_page {
   padding : 3%;
+  text-align: center;
+  padding-top: 15%;
+}

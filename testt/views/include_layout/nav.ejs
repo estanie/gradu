@@ -1,14 +1,10 @@
-<a id="index_a" href='javascript:void(0)' onclick=this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';>▶</a><div id="index_nav" style='display:block'>
-<!--<script type="text/javascript">
-    function showOff(){
-      $('#show').toggleClass("hide");
-      if($('#show').text() == "▼ 기초값 세팅")
-        $('#show').text("▲ 기초값 세팅");
-      else
-        $('#show').text("▼ 기초값 세팅");
-    }
-</script>-->
-  <ul class="hide">
+
+<div id="index_div" class="label">
+  <p>▶</p>
+</div>
+<div id="index_nav" class="elements">
+  
+  <ul>
   	<b><li><a id="show" href="#" onclick="javascript:showOff()">기초값 세팅</a></li></b>
   	<ul>
   		<li><a href="content/main">학점이수표</a></li>
@@ -39,3 +35,34 @@
   </ul>
 
 </div>
+
+<script type="text/javascript">
+  var elements = document.getElementsByTagName("div");
+  
+  for (var i = 0; i < elements.length; i++) {
+    if (elements[i].className == "elements") {
+      elements[i].style.display="block";
+    } else if (elements[i].className == "label") {
+      elements[i].onclick=switchDisplay;
+    }
+  }
+
+  function switchDisplay() {
+    var parent = this.parentNode;
+    var target = parent.getElementsByTagName("div")[2];
+    var target1 = parent.getElementsByTagName("div")[3];
+    if (target.style.display == "none") {
+      target.style.display="block";
+      target1.style.width ="75%";
+    } else {
+      target.style.display="none";
+      target1.style.width = "90%";
+    }
+    return false;
+  }
+
+</script>
+
+<!--
+<a id="index_a" href='javascript:void(0)' onclick=this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';>▶</a><div id="index_nav" style='display:block'>
+-->
