@@ -1,3 +1,23 @@
+@font-face {
+  font-family : 'SsangmunDong';
+  src : url(../fonts/Typo_SsangmunDong.eot);
+  src : url(../fonts/Typo_SsangmunDong.woff) format('woff'),
+        url(../fonts/Typo_SsangmunDong.ttf) format('truetype');
+}
+
+@font-face {
+  font-family : 'tenbyten';
+  src : url(../fonts/BareunDotum_Light.eot);
+  src : url(../fonts/BareunDotum_Light.woff) format('woff'),
+        url(../fonts/BareunDotum_Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family : 'barun';
+  src : url(../fonts/10X10Bold.eot);
+  src : url(../fonts/10X10Bold.woff) format('woff'),
+        url(../fonts/10X10Bold.ttf) format('truetype');
+}
 
 .form-login{
   max-width: 330px;
@@ -56,46 +76,87 @@ a {
 
 ul {
   list-style: none;
+  padding-left: 15%;
+}
+
+body{
+  font-family: 'barun';
+}
+/* 주로 사용할 색 
+  white #2b8cbe    #0868ac    #084081
+  rgb(43,140,190)    rgb(8,104,172)    rgb(8,64,129)
+*/
+
+#log_header{
+  font-family: 'SsangmunDong';
+  text-align: center;
+  font-size: 3em;
+  margin-top: -8%;
+  margin-bottom: 3%;
 }
 
 #index_header {
-    text-align:center;
-    height: 10%;
-    position: absolute;
-    top: 0;
-    color:white;
-    width: 100%;
-    background: #0099cc;
+/*  background-color: rgb(8,64,129);*/
+  font-family: 'SsangmunDong';
+  text-align: center;
+  font-size: 2em;
+  height: 15%;
+  text-align: vertical-center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#index_header p{
+  top: 3%;
 }
 #index_nav, #index_section, #index_a {
-  top: 11%;
+  top: 15%;
   height: 85%;
   position: relative;
 }
 
 #index_nav {
   line-height:30px;
-  background-color: lightgrey;  
-  width:16%;
+  background-color: #e6e6e6;
+  width:15%;
+  padding-left: -5pt;
+  list-style: none;
   float:left;
+  font-size: 10pt;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 0px 25px;
 }
 
 #index_a {
   float: left;
+  background-color: #e6e6e6;  
+  width: 3%;
+  font-size: 2em;
+  text-align: center;
 }
 
 #index_section {
-  width: 80%;
-  margin-left: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 75%;
+  margin-left: 2.5%;
   float:left;
+  border: 1px solid #e3e3e3;
+  border-radius: 25px 25px 0 0;
 }
+
 #index_footer {
     margin-top : 1%;
     background-color:black;
     color:white;
     bottom: 0;
     width: 100%;
-    height: 5%;
+    height: 3%;
     position: absolute;
     text-align:center;    
 }
+
+#main_page {
+  padding : 3%;
