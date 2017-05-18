@@ -20,7 +20,14 @@
     <% include ../include_layout/nav %>  	
     <div id="index_section">
       <div id="main_page">
-      여기는 학점이수표 페이지 속았찌 
+      여기는 학점이수표 페이지 속았찌<br/><br/>
+
+      <p>test file upload</p>
+      <form action="/upload", method="post", enctype="multipart/form-data">
+        <input type="file" name="uploadFile">
+        <input type="submit" name="Upload" value="upload">
+      </form>
+
       </div>
     </div>  
     <% include ../include_layout/footer %>

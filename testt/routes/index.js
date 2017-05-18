@@ -89,6 +89,7 @@ router.post('/upload', function(req, res, next) {
                  console.log(filename+' Part read complete');
                  writeStream.end();
            });
+           
       });
 
       // all uploads are completed

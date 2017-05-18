@@ -1,22 +1,22 @@
 @font-face {
   font-family : 'SsangmunDong';
   src : url(../fonts/Typo_SsangmunDong.eot);
-  src : url(../fonts/Typo_SsangmunDong.woff) format('woff'),
-        url(../fonts/Typo_SsangmunDong.ttf) format('truetype');
-}
-
-@font-face {
-  font-family : 'tenbyten';
-  src : url(../fonts/BareunDotum_Light.eot);
-  src : url(../fonts/BareunDotum_Light.woff) format('woff'),
-        url(../fonts/BareunDotum_Light.ttf) format('truetype');
+  src : url(../fonts/Typo_SsangmunDong.ttf) format('truetype'),
+        url(../fonts/Typo_SsangmunDong.woff) format('woff');
 }
 
 @font-face {
   font-family : 'barun';
-  src : url(../fonts/10X10Bold.eot);
-  src : url(../fonts/10X10Bold.woff) format('woff'),
-        url(../fonts/10X10Bold.ttf) format('truetype');
+  src : url(../fonts/BareunDotum_Light.eot);
+  src : url(../fonts/BareunDotum_Light.ttf) format('truetype'),
+        url(../fonts/BareunDotum_Light.woff) format('woff');
+}
+
+@font-face {
+  font-family : 'tenbyten';
+  src : url(../fonts/10X10.eot);
+  src : url(../fonts/10X10.ttf) format('truetype'),
+        url(../fonts/10X10.woff) format('woff');
 }
 
 .form-login{
