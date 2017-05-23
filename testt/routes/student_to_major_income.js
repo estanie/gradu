@@ -8,6 +8,8 @@ var numRows = 98765431;
 var fs = require('fs');
 var filename = './plsql/student_cal.sql';
 var sql = fs.readFileSync(filename).toString();
+var router = express.Router();
+
 oracledb.getConnection(
     {
         user          : dbConfig.user,
@@ -21,8 +23,6 @@ oracledb.getConnection(
             return;
         }
 
-
-        console.log(sql);
         connection.execute(
             // The statement to execute
             sql,
@@ -75,6 +75,7 @@ function fetchRowsFromRS(connection, resultSet, numRows)
         });
 }
 
+
 function doRelease(connection)
 {
     connection.close(
@@ -93,3 +94,10 @@ function doClose(connection, resultSet)
             doRelease(connection);
         });
 }
+
+
+router.get('/major_income', function(req, res, next) {
+    res.render('', { title: 'Express' });
+});
+
+module.exports = router;
