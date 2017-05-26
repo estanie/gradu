@@ -10,7 +10,6 @@ var oracledb = require('oracledb');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var home = require('./routes/home');
-var main = require('./routes/main');
 
 var app = express();
 
@@ -30,7 +29,6 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/home', home);
 app.use('/login', home);
-app.use('/content', main);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -5,7 +5,7 @@ var app = express();
 var router = express.Router();
 
 router.get('/main', function(req, res, next) {
-  res.render('content/main', { title: 'Express' });
+  res.render('main', { title: 'Express' });
 });
 
 router.post('/upload', function(req, res, next) {

@@ -9,6 +9,7 @@ oracledb.autoCommit = true;
 var log = {};
 var result = 0;
 var check = false;
+var name = "admin";
 
 oracledb.getConnection(
 {
@@ -39,6 +40,57 @@ router.get('/', function(req, res, next) {
   	res.render('index', { title: 'Express', check	: check });
 });
 
+router.get('/1hakjum', function(req, res, next) {
+  res.render('1hakjum', { title: 'Express' });
+});
+
+router.get('/2bunseok', function(req, res, next) {
+  res.render('2bunseok', { title: 'Express' });
+});
+
+router.get('/3yeongye', function(req, res, next) {
+  res.render('3yeongye', { title: 'Express' });
+});
+
+router.get('/4buseo', function(req, res, next) {
+  res.render('4buseo', { title: 'Express' });
+});
+
+router.get('/5pyeojun', function(req, res, next) {
+  res.render('5pyeojun', { title: 'Express' });
+});
+
+router.get('/6bonbu', function(req, res, next) {
+  res.render('6bonbu', { title: 'Express' });
+});
+
+router.get('/7jaehak', function(req, res, next) {
+  res.render('7jaehak', { title: 'Express' });
+});
+
+router.get('/8hakbu', function(req, res, next) {
+  res.render('1hakjum', { title: 'Express' });
+});
+
+router.get('/9hakgua', function(req, res, next) {
+  res.render('9hakgua', { title: 'Express' });
+});
+
+router.get('/10kyojik', function(req, res, next) {
+  res.render('10kyojik', { title: 'Express' });
+});
+
+router.get('/11jasan', function(req, res, next) {
+  res.render('11jasan', { title: 'Express' });
+});
+
+router.get('/12haksang', function(req, res, next) {
+  res.render('12haksang', { title: 'Express' });
+});
+
+
+
+
 router.post('/', function(req, res, next){
 	var 
 		user_id = req.body.log_id,
@@ -49,7 +101,7 @@ router.post('/', function(req, res, next){
 
 	if( (log.id == user_id) && (log.pw == user_pw)) {
 		console.log("<login>\n"+"SUCCESSS!\n");
-	  	res.render('index', { title: 'Express', check : 'true' });
+	  	res.render('index', { title: 'Express', check : 'true', name : name });
 	}
 	else{
 		console.log("<login>\n"+"FAIL!\n");
