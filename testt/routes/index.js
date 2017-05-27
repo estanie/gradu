@@ -40,56 +40,69 @@ router.get('/', function(req, res, next) {
   	res.render('index', { title: 'Express', check	: check });
 });
 
-router.get('/1hakjum', function(req, res, next) {
-  res.render('1hakjum', { title: 'Express' });
+router.get('/baebu', function(req, res, next) {
+  res.render('1baebu');
 });
 
-router.get('/2bunseok', function(req, res, next) {
-  res.render('2bunseok', { title: 'Express' });
+router.get('/junlim', function(req, res, next) {
+  res.render('1junlim');
 });
 
-router.get('/3yeongye', function(req, res, next) {
-  res.render('3yeongye', { title: 'Express' });
+router.get('/jang', function(req, res, next) {
+  res.render('1jang');
 });
 
-router.get('/4buseo', function(req, res, next) {
-  res.render('4buseo', { title: 'Express' });
+router.get('/hosil', function(req, res, next) {
+  res.render('1hosil');
 });
 
-router.get('/5pyeojun', function(req, res, next) {
-  res.render('5pyeojun', { title: 'Express' });
+router.get('/buseo', function(req, res, next) {
+  res.render('1buseo');
 });
 
-router.get('/6bonbu', function(req, res, next) {
-  res.render('6bonbu', { title: 'Express' });
+router.get('/pyeojun', function(req, res, next) {
+  res.render('1pyeojun');
 });
 
-router.get('/7jaehak', function(req, res, next) {
-  res.render('7jaehak', { title: 'Express' });
+router.get('/bonbu', function(req, res, next) {
+  res.render('1bonbu');
 });
 
-router.get('/8hakbu', function(req, res, next) {
-  res.render('1hakjum', { title: 'Express' });
+router.get('/jaehak', function(req, res, next) {
+  res.render('1jaehak');
 });
 
-router.get('/9hakgua', function(req, res, next) {
-  res.render('9hakgua', { title: 'Express' });
+router.get('/hakbu', function(req, res, next) {
+  res.render('1hakbu');
 });
 
-router.get('/10kyojik', function(req, res, next) {
-  res.render('10kyojik', { title: 'Express' });
+router.get('/hakgua', function(req, res, next) {
+  res.render('1hakgua');
 });
 
-router.get('/11jasan', function(req, res, next) {
-  res.render('11jasan', { title: 'Express' });
+router.get('/kyojik', function(req, res, next) {
+  res.render('1kyojik');
 });
 
-router.get('/12haksang', function(req, res, next) {
-  res.render('12haksang', { title: 'Express' });
+router.get('/jasan', function(req, res, next) {
+  res.render('1jasan');
 });
 
+router.get('/haksang', function(req, res, next) {
+  res.render('1haksang');
+});
 
+router.get('/plus', function(req, res, next) {
+  res.render('2plus');
+});
 
+router.get('/p_hakbu', function(req, res, next) {
+  res.render('2hakbu');
+});
+
+router.get('/p_time', function(req, res, next) {
+  res.render('2time');
+});
 
 router.post('/', function(req, res, next){
 	var 
