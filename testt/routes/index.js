@@ -9,13 +9,14 @@ oracledb.autoCommit = true;
 var log = {};
 var result = 0;
 var check = false;
+var name = "admin";
 
 oracledb.getConnection(
-    {
-        user          : dbConfig.user,
-        password      : dbConfig.password,
-        connectString : dbConfig.connectString
-    },
+{
+    user          : dbConfig.user,
+    password      : dbConfig.password,
+    connectString : dbConfig.connectString
+},
 function(err, connection){
 	if(err) {console.error(err.message); return; }
 	
@@ -39,7 +40,72 @@ router.get('/', function(req, res, next) {
   	res.render('index', { title: 'Express', check	: check });
 });
 
+router.get('/baebu', function(req, res, next) {
+  res.render('1baebu');
+});
+
+router.get('/junlim', function(req, res, next) {
+  res.render('1junlim');
+});
+
+router.get('/jang', function(req, res, next) {
+  res.render('1jang');
+});
+
+router.get('/hosil', function(req, res, next) {
+  res.render('1hosil');
+});
+
+router.get('/buseo', function(req, res, next) {
+  res.render('1buseo');
+});
+
+router.get('/pyeojun', function(req, res, next) {
+  res.render('1pyeojun');
+});
+
+router.get('/bonbu', function(req, res, next) {
+  res.render('1bonbu');
+});
+
+router.get('/jaehak', function(req, res, next) {
+  res.render('1jaehak');
+});
+
+router.get('/hakbu', function(req, res, next) {
+  res.render('1hakbu');
+});
+
+router.get('/hakgua', function(req, res, next) {
+  res.render('1hakgua');
+});
+
+router.get('/kyojik', function(req, res, next) {
+  res.render('1kyojik');
+});
+
+router.get('/jasan', function(req, res, next) {
+  res.render('1jasan');
+});
+
+router.get('/haksang', function(req, res, next) {
+  res.render('1haksang');
+});
+
+router.get('/plus', function(req, res, next) {
+  res.render('2plus');
+});
+
+router.get('/p_hakbu', function(req, res, next) {
+  res.render('2hakbu');
+});
+
+router.get('/p_time', function(req, res, next) {
+  res.render('2time');
+});
+
 router.post('/', function(req, res, next){
+
     var
         user_id = req.body.log_id,
         user_pw = req.body.log_pw;
@@ -57,7 +123,6 @@ router.post('/', function(req, res, next){
     }
 });
 
-
 router.post('/upload', function(req, res, next) {
       var form = new multiparty.Form();
 
@@ -65,7 +130,6 @@ router.post('/upload', function(req, res, next) {
       form.on('field',function(name,value){
            console.log('**원래 파일 / name = '+name+' , value = '+value);
       });
-
 
       // file upload handling
       form.on('part',function(part){
@@ -91,6 +155,7 @@ router.post('/upload', function(req, res, next) {
                  console.log(filename+' Part read complete');
                  writeStream.end();
            });
+           
       });
 
       // all uploads are completed
@@ -105,6 +170,5 @@ router.post('/upload', function(req, res, next) {
       form.parse(req);
 
 });
-
 
 module.exports = router;

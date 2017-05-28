@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var oracledb = require('oracledb');
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var home = require('./routes/home');
@@ -30,7 +32,6 @@ app.use('/users', users);
 app.use('/home', home);
 app.use('/login', home);
 app.use('/major_income',major_income);
-app.use('/content', main);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

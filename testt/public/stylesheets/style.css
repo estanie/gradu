@@ -1,22 +1,22 @@
 @font-face {
   font-family : 'SsangmunDong';
   src : url(../fonts/Typo_SsangmunDong.eot);
-  src : url(../fonts/Typo_SsangmunDong.woff) format('woff'),
-        url(../fonts/Typo_SsangmunDong.ttf) format('truetype');
-}
-
-@font-face {
-  font-family : 'tenbyten';
-  src : url(../fonts/BareunDotum_Light.eot);
-  src : url(../fonts/BareunDotum_Light.woff) format('woff'),
-        url(../fonts/BareunDotum_Light.ttf) format('truetype');
+  src : url(../fonts/Typo_SsangmunDong.ttf) format('truetype'),
+        url(../fonts/Typo_SsangmunDong.woff) format('woff');
 }
 
 @font-face {
   font-family : 'barun';
-  src : url(../fonts/10X10Bold.eot);
-  src : url(../fonts/10X10Bold.woff) format('woff'),
-        url(../fonts/10X10Bold.ttf) format('truetype');
+  src : url(../fonts/BareunDotum_Light.eot);
+  src : url(../fonts/BareunDotum_Light.ttf) format('truetype'),
+        url(../fonts/BareunDotum_Light.woff) format('woff');
+}
+
+@font-face {
+  font-family : 'tenbyten';
+  src : url(../fonts/10X10.eot);
+  src : url(../fonts/10X10.ttf) format('truetype'),
+        url(../fonts/10X10.woff) format('woff');
 }
 
 .form-login{
@@ -110,7 +110,7 @@ body{
 #index_header p{
   top: 3%;
 }
-#index_nav, #index_section, #index_a {
+#index_nav, #index_section, #index_div {
   top: 15%;
   height: 85%;
   position: relative;
@@ -129,7 +129,7 @@ body{
   border-radius: 0px 25px;
 }
 
-#index_a {
+#index_div {
   float: left;
   background-color: #e6e6e6;  
   width: 3%;
@@ -160,3 +160,35 @@ body{
 
 #main_page {
   padding : 3%;
+  text-align: center;
+  padding-top: 15%;
+}
+
+
+#howtodo{
+  margin: 2%;
+  padding : 1%; padding-left: 3%;
+  color: gray;
+  background: #e6e6e6;
+}
+
+#howtodo ul{
+  padding-left: 5%;
+  line-height: 200%;
+}
+
+#main_upage, #main_dpage {
+  padding-left: 2%;
+  padding-bottom: 2%;
+  margin-bottom: 2%;
+
+}
+
+#main_upage {
+  height: 20%;
+}
+
+#deunglok_main {
+  text-align: center;
+  padding-top: 10%;
+}
