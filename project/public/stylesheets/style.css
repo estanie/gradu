@@ -1,0 +1,194 @@
+@font-face {
+  font-family : 'SsangmunDong';
+  src : url(../fonts/Typo_SsangmunDong.eot);
+  src : url(../fonts/Typo_SsangmunDong.ttf) format('truetype'),
+        url(../fonts/Typo_SsangmunDong.woff) format('woff');
+}
+
+@font-face {
+  font-family : 'barun';
+  src : url(../fonts/BareunDotum_Light.eot);
+  src : url(../fonts/BareunDotum_Light.ttf) format('truetype'),
+        url(../fonts/BareunDotum_Light.woff) format('woff');
+}
+
+@font-face {
+  font-family : 'tenbyten';
+  src : url(../fonts/10X10.eot);
+  src : url(../fonts/10X10.ttf) format('truetype'),
+        url(../fonts/10X10.woff) format('woff');
+}
+
+.form-login{
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-login .login_header{
+  margin-bottom: 10px;
+}
+
+.form-login .login_input {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  width:100%;
+  font-size: 16px;
+}
+
+.form-login .login_input:focus {
+  z-index: 2;
+}
+
+.form-logininput[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-login input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.login_btn{
+  border : 1px solid black;
+  display:block; 
+  margin-top:5px;
+  padding: 10px 16px;
+  width:100%;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  color: white;
+  background-color: black;
+}
+
+a {
+  color: black;
+  text-decoration:none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 15%;
+}
+
+body{
+  font-family: 'barun';
+}
+/* 주로 사용할 색 
+  white #2b8cbe    #0868ac    #084081
+  rgb(43,140,190)    rgb(8,104,172)    rgb(8,64,129)
+*/
+
+#log_header{
+  font-family: 'SsangmunDong';
+  text-align: center;
+  font-size: 3em;
+  margin-top: -8%;
+  margin-bottom: 3%;
+}
+
+#index_header {
+/*  background-color: rgb(8,64,129);*/
+  font-family: 'SsangmunDong';
+  text-align: center;
+  font-size: 2em;
+  height: 15%;
+  text-align: vertical-center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#index_header p{
+  top: 3%;
+}
+#index_nav, #index_section, #index_div {
+  top: 15%;
+  height: 85%;
+  position: relative;
+}
+
+#index_nav {
+  line-height:30px;
+  background-color: #e6e6e6;
+  width:15%;
+  padding-left: -5pt;
+  list-style: none;
+  float:left;
+  font-size: 10pt;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 0px 25px;
+}
+
+#index_div {
+  float: left;
+  background-color: #e6e6e6;  
+  width: 3%;
+  font-size: 2em;
+  text-align: center;
+}
+
+#index_section {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 75%;
+  margin-left: 2.5%;
+  float:left;
+  border: 1px solid #e3e3e3;
+  border-radius: 25px 25px 0 0;
+}
+
+#index_footer {
+    margin-top : 1%;
+    background-color:black;
+    color:white;
+    bottom: 0;
+    width: 100%;
+    height: 3%;
+    position: absolute;
+    text-align:center;    
+}
+
+#main_page {
+  padding : 3%;
+  text-align: center;
+  padding-top: 15%;
+}
+
+
+#howtodo{
+  margin: 2%;
+  padding : 1%; padding-left: 3%;
+  color: gray;
+  background: #e6e6e6;
+}
+
+#howtodo ul{
+  padding-left: 5%;
+  line-height: 200%;
+}
+
+#main_upage, #main_dpage {
+  padding-left: 2%;
+  padding-bottom: 2%;
+  margin-bottom: 2%;
+
+}
+
+#main_upage {
+  height: 20%;
+}
+
+#deunglok_main {
+  text-align: center;
+  padding-top: 10%;
+}
