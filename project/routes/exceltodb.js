@@ -23,18 +23,20 @@ connection.connect(function(err){
 });
 
 //첫 줄 출력
-let sql = 'drop table if exists '+filename;
-connection.query(sql,function(err,rows){
+let drop = 'drop table if exists '+filename;
+console.log("drop: "+drop);
+connection.query(drop,function(err,rows){
     if(err) throw err;
-    console.log(sql+'excuted');
+    console.log("drop: "+drop);
 });
 
-sql = 'create table '+filename+'( 소속 VARCHAR(15), 대학_부서코드 VARCHAR(10),' +
+let create = 'create table '+filename+'( 소속 VARCHAR(15), 대학_부서코드 VARCHAR(10),' +
     ' 전공_부서코드 VARCHAR(10), 학번 VARCHAR(10), 입학금 INTEGER,' +
     ' 수업료 INTEGER, 학점등록 VARCHAR(15) )';
-connection.query(sql,function(err){
+console.log("create: "+ create);
+connection.query(create,function(err){
     if(err) throw err;
-    console.log(sql+'excuted');
+    console.log("create: "+ create);
 });
 
 // just header 출력
@@ -65,11 +67,11 @@ for (i = 2;;i++){
         }
     if (end)
         break;
-    sql = 'INSERT INTO '+ filename + ' VALUES (?,?,?,?,?,?,?)';
-    sql = mysql.format(sql,data);
-    connection.query(sql,function(err){
+    let ins = 'INSERT INTO '+filename+' VALUES (?,?,?,?,?,?,?)';
+    ins = mysql.format(ins,data);
+    connection.query(ins,function(err){
         if(err) throw err;
-       // console.log(sql+'excuted');
+       // console.log(ins+'excuted');
     });
 }
-//connection.destroy();
+connection.end();
