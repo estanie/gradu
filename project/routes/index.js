@@ -84,7 +84,7 @@ router.get('/p_time', function(req, res, next) {
 
 router.post('/', function(req, res, next){
 
-    connection.query('select log_id, log_pw from test', function(err, rows) {
+    connection.query('select log_id, log_pw from login', function(err, rows) {
       if(err) throw err;
       console.log(rows[0].log_id);
 

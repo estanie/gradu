@@ -9,7 +9,7 @@ var result = 0;
 
 router.get('/login', function(req, res, next) {
 
-	connection.query('select log_id, log_pw from test', function(err, rows) {
+	connection.query('select log_id, log_pw from login', function(err, rows) {
 		if(err) throw err;
 
 		log.id = rows[0].log_id;
