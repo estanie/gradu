@@ -1,8 +1,10 @@
-var express = require('express');
-var fs = require('fs');
+/*현재 안쓰임*/
+
+let express = require('express');
+let fs = require('fs');
 //var multiparty = require('multiparty');
-var app = express();
-var router = express.Router();
+let app = express();
+let router = express.Router();
 
 router.get('/main', function(req, res, next) {
   res.render('main', { title: 'Express' });
