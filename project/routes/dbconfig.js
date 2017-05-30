@@ -89,6 +89,9 @@ module.exports = {
     user     : 'root',
     password : 'as123123',
     port     : 3306,
+    database : 'cs' // server
+/* 가시 컴퓨터
     database : 'test',
     debug: true
+*/
 };
