@@ -15,8 +15,12 @@ router.get('/login', function(req, res, next) {
 		log.id = rows[0].log_id;
 		log.pw = rows[0].log_pw;
 
-		console.log("log id : " + log.id + " log_pw : "  + log.pw);
-		res.render('home/login', {id : log.id, pw : log.pw, result : result});
+		if(log.id == null || log.pw == null)
+			console.log('null return');
+		else 
+			console.log('db에서 잘 받아옴');
+//		console.log("log id : " + log.id + " log_pw : "  + log.pw);
+		res.render('home/login', {id : log.id, pw : log.pw});
 	});
 });
 

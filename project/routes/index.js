@@ -86,24 +86,25 @@ router.post('/', function(req, res, next){
 
     connection.query('select log_id, log_pw from login', function(err, rows) {
       if(err) throw err;
-      console.log(rows[0].log_id);
-
+      
       log.id = rows[0].log_id;
       log.pw = rows[0].log_pw;
 
-      console.log("log id : " + log.id + " log_pw : "  + log.pw);
+      if(log.id == null || log.pw == null)
+        console.log('null return');
+      else console.log('db에서 잘 받아옴');
+//    console.log("log id : " + log.id + " log_pw : "  + log.pw);
     });
 
     var
         user_id = req.body.log_id,
         user_pw = req.body.log_pw;
 
-    if(log.id == user_id){
-    }
-
-    if( (log.id == user_id) && (log.pw == user_pw)) {
+    console.log('user_id : ' + user_id + " user_pw : " + user_pw);
+    
+    if( (log.id == user_id) && (log.pw == user_pw) ) {
         console.log("<login>\n"+"SUCCESSS!\n");
-        res.render('index', { title: 'Express', check : 'true' });
+        res.render('index', { check : 'true' });
     }
     else{
         console.log("<login>\n"+"FAIL!\n");
