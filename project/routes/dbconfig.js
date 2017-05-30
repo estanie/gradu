@@ -89,5 +89,10 @@ module.exports = {
     user     : 'root',
     password : 'as123123',
     port     : 3306,
+<<<<<<< HEAD
     database : 'cs'
+=======
+    database : 'test',
+    debug: true
+>>>>>>> 733265dc80971115ec1f75efaea768b9754fa6cc
 };
