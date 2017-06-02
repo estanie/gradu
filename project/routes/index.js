@@ -11,11 +11,11 @@ var log = {};
 var result = 0;
 var check = false;
 var name = "admin";
-
+var session_id = null;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express', check : check });
+    res.render('index', { check : check });
 });
 
 router.get('/baebu', function(req, res, next) {
@@ -89,10 +89,13 @@ router.post('/', function(req, res, next){
       
       log.id = rows[0].log_id;
       log.pw = rows[0].log_pw;
-
+      
       if(log.id == null || log.pw == null)
         console.log('null return');
-      else console.log('db에서 잘 받아옴');
+      else{ 
+        console.log('db에서 잘 받아옴');
+        session_id = log.id;
+      }
 //    console.log("log id : " + log.id + " log_pw : "  + log.pw);
     });
 
@@ -100,15 +103,15 @@ router.post('/', function(req, res, next){
         user_id = req.body.log_id,
         user_pw = req.body.log_pw;
 
-    console.log('user_id : ' + user_id + " user_pw : " + user_pw);
+    console.log('user_id : ' + user_id + " user_pw : " + user_pw + " session  : " + session_id);
     
     if( (log.id == user_id) && (log.pw == user_pw) ) {
         console.log("<login>\n"+"SUCCESSS!\n");
-        res.render('index', { check : 'true' });
+        res.render('index', { check : 'true', session_id : session_id });
     }
     else{
         console.log("<login>\n"+"FAIL!\n");
-        res.render('home/login');
+        res.render('home/login', {check : 'false'});
     }
 });
 

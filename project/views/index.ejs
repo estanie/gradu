@@ -5,11 +5,16 @@
     <title>SMWU 원가분석</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Terminal+Dosis" />
+<!-- 로그인 세션 구현
   	<script type="text/javascript">
-    	if(<%=check%>)
+    	if(<%=check%>){
     		window.alert("로그인 성공!");
-    </script>
-
+      }
+      else{
+        window.alert("접근 불가");
+        location.href="home/login";
+      }
+    </script>-->
 	<style>
 		html, body{
 			margin:0; padding: 0;
@@ -19,7 +24,7 @@
   </style>
   </head>
 
-  <body>
+  <body>    
   	<% include ./header %>
     <% include ./nav %>  	
     <% include ./main_page %>    
