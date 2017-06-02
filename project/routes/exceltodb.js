@@ -32,7 +32,7 @@ connection.query(drop,function(err,rows){
 
 let create = 'create table '+filename+'( 소속 VARCHAR(15), 대학_부서코드 VARCHAR(10),' +
     ' 전공_부서코드 VARCHAR(10), 학번 VARCHAR(10), 입학금 INTEGER,' +
-    ' 수업료 INTEGER, 학점등록 VARCHAR(15) )';
+    ' 수업료 INTEGER, 학점등록 VARCHAR(15) ) default character set utf8mb4 collate utf8mb4_general_ci';
 console.log("create: "+ create);
 connection.query(create,function(err){
     if(err) throw err;
