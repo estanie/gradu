@@ -7,6 +7,8 @@ var dbconfig = require('./dbconfig.js');
 var router = express.Router();
 var connection = mysql.createConnection(dbconfig);
 
+let exceldb = require('./exceltodb.js');
+
 var log = {};
 var result = 0;
 var check = false;
@@ -161,6 +163,7 @@ router.post('/upload', function(req, res, next) {
       });
       form.parse(req);
 
+      exceldb.dbinput();
 });
 
 module.exports = router;
