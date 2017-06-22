@@ -8,6 +8,7 @@ var router = express.Router();
 var connection = mysql.createConnection(dbconfig);
 
 let exceldb = require('./exceltodb.js');
+let majordb = require('./majortodb.js');
 
 var log = {};
 var result = 0;
@@ -164,6 +165,7 @@ router.post('/upload', function(req, res, next) {
       form.parse(req);
 
       exceldb.dbinput();
+    //majordb.majorinput();
 });
 
 module.exports = router;
