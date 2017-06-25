@@ -19,6 +19,7 @@ module.exports = {
         const ALPHA = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
         let data = [];
 //첫 줄 출력
+
         let drop = 'drop table if exists ' + filename;
         console.log("drop: " + drop);
         connection.query(drop, function (err, rows) {
@@ -70,5 +71,6 @@ module.exports = {
                 //console.log(ins + 'excuted');
             });
         }
+
     }
 }
