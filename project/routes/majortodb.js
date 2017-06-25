@@ -77,12 +77,12 @@ module.exports = {
             data[3] = cell_value;
             if (end)
                 break;
-        }
             let ins = 'INSERT INTO ' + filename + ' VALUES (?,?,?,?)';
             ins = mysql.format(ins, data);
             connection.query(ins, function (err) {
                 if (err) throw err;
-                //console.log(ins + 'excuted');
+                console.log(ins + 'excuted');
             });
         }
     }
+}
