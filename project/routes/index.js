@@ -170,8 +170,8 @@ router.post('/upload', function(req, res, next) {
       });
       form.parse(req);
 
-      exceldb.dbinput();
-    //majordb.majorinput();
+      //exceldb.dbinput();
+      majordb.majorinput();
 });
 
 module.exports = router;
