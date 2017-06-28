@@ -192,3 +192,7 @@ body{
   text-align: center;
   padding-top: 10%;
 }
+
+#block_a:hover{
+  background-color: white;
+}

@@ -11,7 +11,7 @@ console.log(xlsx.version);
 
 module.exports = {
     dbinput: function () {
-        let filename = '등록금_2015_1학기';
+        let filename = 'hakbu';
         let workbook = xlsx.readFile('./public/upload/'+filename +'.xlsx');
 
         let sheet_name = workbook.SheetNames[0];
