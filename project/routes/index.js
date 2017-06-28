@@ -54,13 +54,7 @@ router.get('/jaehak', function(req, res, next) {
 });
 
 router.get('/hakbu', function(req, res, next) {
-  var sql = "select * from hakbu";
-  connection.query(sql, function(err, rows){
-    if (err) console.error("err : " + err);
-    console.log("rows : "+rows);
-  });
-  res.render('1hakbu', {title : "학부생", rows : rows});
-  connection.release();
+  res.render('1hakbu');
 });
 
 router.get('/hakgua', function(req, res, next) {
@@ -84,7 +78,14 @@ router.get('/plus', function(req, res, next) {
 });
 
 router.get('/p_hakbu', function(req, res, next) {
-  res.render('2hakbu');
+  
+  connection.query('select * from hakbu', function(err, rows){
+    if (err) console.error("err : " + err);
+    console.log("row 잘 받아옴");
+    
+    res.render('2hakbu', {title : "학부생", rows : rows});
+  });
+  
 });
 
 router.get('/p_time', function(req, res, next) {

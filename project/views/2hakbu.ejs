@@ -29,19 +29,43 @@
         <input type="file" name="uploadFile">
         <input type="submit" name="Upload" value="첨부">
         </form>
+        <br>
+        <b><p> * 아래 파일을 다운 받으시려면 파일을 클릭하세요. </p></b>
 
       </div>
       <div id="main_dpage">
-        <p> * 현재 등록된 학부생 등록금 납입표</p>
-        <p style="line-height: 150%;">보여주기(표 형태로, db 읽어오기)<br><br>
-        <% if (false){%>
+        <b><p> * 현재 등록된 학부생 등록금 납입표</p></b><br>
+        <!--<% if (false){%>
           if(table exist)<br>
           &nbsp&nbsp table 읽어와서 표 형태로 보여주기<Br>
         <% }
         else { %>
         &nbsp&nbsp 등록된 정보가 없습니다<br>
-          <% } %>
-        </p>
+          <% } %>-->
+          <table width="90%">
+            <%
+            if(rows.length == 0) {%>
+              <p>해당 데이터가 존재하지 않습니다.</p>
+            <% }
+            else{ %>
+              <tr style="background-color: black; color: white; font-weight: bolder;">
+                <th>major_class</th> <th>major_id</th> <th>student_id</th> <th>first_major</th>
+              </tr>
+            <% 
+              for(var i=0; i<rows.length; i++){
+                var item = rows[i];
+            %>
+                <tr>
+                  <td><%=item.major_class%></td>
+                  <td><%=item.major_id%></td>
+                  <td><%=item.student_id%></td>
+                  <td><%=item.first_major%></td>
+                </tr>
+            <%
+              }
+            }
+            %>
+          </table>
       </div>
 
     </div>  
