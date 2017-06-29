@@ -30,21 +30,13 @@
         <input type="submit" name="Upload" value="첨부">
         </form>
         <br>
-        <b><p> * 아래 파일을 다운 받으시려면 파일을 클릭하세요. </p></b>
-
+        <% include ./download %>
       </div>
-      <div id="main_dpage">
+      <div id="main_dpage" style="margin-top: 5%;">
         <b><p> * 현재 등록된 학부생 등록금 납입표</p></b><br>
-        <!--<% if (false){%>
-          if(table exist)<br>
-          &nbsp&nbsp table 읽어와서 표 형태로 보여주기<Br>
-        <% }
-        else { %>
-        &nbsp&nbsp 등록된 정보가 없습니다<br>
-          <% } %>-->
-          <table width="90%">
+          <table width="90%" align="center" style="text-align: center;">
             <%
-            if(rows.length == 0) {%>
+            if(rows == undefined) {%>
               <p>해당 데이터가 존재하지 않습니다.</p>
             <% }
             else{ %>
@@ -55,7 +47,7 @@
               for(var i=0; i<rows.length; i++){
                 var item = rows[i];
             %>
-                <tr>
+				<tr>
                   <td><%=item.major_class%></td>
                   <td><%=item.major_id%></td>
                   <td><%=item.student_id%></td>

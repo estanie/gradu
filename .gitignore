@@ -1,5 +1,5 @@
 project/node_modules/
-project/public/upload/
 project/routes/dbconfig.js
 .idea/
 *.xlsx
+

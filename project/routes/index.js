@@ -6,7 +6,7 @@ var fs = require('fs');
 var dbconfig = require('./dbconfig.js');
 var router = express.Router();
 var connection = mysql.createConnection(dbconfig);
-
+var mime = require('mime');
 let exceldb = require('./exceltodb.js');
 let majordb = require('./majortodb.js');
 
@@ -80,16 +80,86 @@ router.get('/plus', function(req, res, next) {
 router.get('/p_hakbu', function(req, res, next) {
   
   connection.query('select * from hakbu', function(err, rows){
-    if (err) console.error("err : " + err);
+    if (err) {
+      console.error("err : " + err);
+      res.render('2hakbu',{title : "none", rows : rows, filename : "파일이 존재하지 않습니다.", err : "err"});
+    }
+
     console.log("row 잘 받아옴");
-    
-    res.render('2hakbu', {title : "학부생", rows : rows});
+    res.render('2hakbu',{title : "p_hakbu", rows : rows, filename : "학부별 등록금 배분.xlsx", err : "no"});
   });
   
 });
 
 router.get('/p_time', function(req, res, next) {
-  res.render('2time');
+  connection.query('select * from p_time', function(err, rows){
+    if (err) {
+      console.error("err : " + err);
+      res.render('2time',{title : "none", rows : rows, filename : "파일이 존재하지 않습니다.", err : "err"});
+    }
+
+    console.log("row 잘 받아옴");
+    res.render('2time',{title : "p_time", rows : rows, filename : "시간제 등록금 배분.xlsx", err : "no"});
+  });
+  
+});
+
+router.get('/download/:fileID', function(req, res, next){
+  var id = req.params.fileID;
+  var re = req.path;
+
+  var back = req.header('Referer') || '/';
+  var backArr = back.split("/");
+  var go = "/" + backArr[3];
+  
+  var dir = __dirname;
+  dir = dir.replace("routes", "public");
+  dir = dir + "/download/" + id + ".xlsx";
+  
+  if(re  == "/download/none"){
+    console.log("파일이 존재하지 않음");
+    res.redirect(go);
+  }
+  else{
+    console.log("***dir name : "+  dir + "***");
+    console.log("-----------"+ id + " download START-----------")
+
+    res.sendFile(dir, function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("************파일 다운로드!*********");
+      }
+    });
+  }
+
+  /*if(id == "p_hakbu"){
+    console.log("-----------"+ id + " download START-----------")
+    res.sendFile(dir+"/download/"+id+".xlsx", function(err){
+      if(err){
+        console.log(err);
+        res.status(err.status).end();
+      }
+      else
+        console.log("************파일 다운로드!");
+    });
+
+    //res.download('./public/download/'+id + ".xlsx");
+    console.log("-----------" + id + " download END -----------");
+
+    /*console.log("-----------"+ id + " download START-----------")
+    res.setHeader('Content-disposition', 'attachment; filename=p_hakbu.xlsx');
+    res.setHeader('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+    res.download('./public/upload/'+id + '.xlsx');
+    console.log("-----------" + id + " download END -----------");**/
+  /*}
+  else if(id == "p_time"){
+    console.log("-----------"+ id + " download START-----------")
+    res.download('./public/download/'+id + ".xlsx");
+    console.log("-----------" + id + " download END -----------");    
+  }*/
 });
 
 router.post('/', function(req, res, next){
