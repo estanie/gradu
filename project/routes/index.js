@@ -209,6 +209,120 @@ router.get('/p_time', function(req, res, next) {
   
 });
 
+
+router.get('/download/:fileid', function(req, res){
+  var fileID = req.params.fileid;
+  var path = req.path;
+
+  var backPagePath = req.header('Referer') || '/';
+  var backAdd = backPagePath.split("/");
+  var go = "/" + backAdd[3];
+
+  if(path == '/download/none'){
+    console.log("파일이 존재하지 않음");
+    res.redirect(go);
+  }
+  else{
+    var nodeExcel = require('excel-export');
+    var conf = {};
+    
+    if(fileID == "p_hakbu"){
+      console.log("-----------"+ fileID + " download START-----------")
+      conf.cols = [{
+        caption : 'major_class',
+        type : 'string',
+        width : 50
+      },
+      {
+        caption : 'major_id',
+        type : 'string',
+        width : 5
+      },
+      {
+        caption : 'student_id',
+        type : 'string',
+        width : 50
+      },
+      {
+        caption : 'first_major',
+        type : 'string',
+        width : 5
+      }];
+
+      var query = 'select * from p_hakbu';
+      connection.query(query, function(err, rows){
+        arr = [];
+        for(i = 0; i<rows.length; i++){
+          item = rows[i];
+          major_class = item.major_class;
+          major_id = item.major_id;
+          student_id = item.student_id;
+          first_major = item.first_major;
+
+          a = [major_class, major_id, student_id, first_major];
+          arr.push(a);
+        }
+        conf.rows = arr;
+        var result = nodeExcel.execute(conf);
+        res.setHeader('Content-Type', 'application/vnd.openxmlformates');
+        res.setHeader('Content-Disposition', 'attachment; filename = '+ fileID + '.xlsx');
+        res.end(result, 'binary');
+      });
+      console.log("-----------"+ fileID + " download END-----------")
+    
+    }
+    else if(fileID == "p_time"){
+      console.log("-----------"+ fileID + " download START-----------")
+      conf.cols = [{
+        caption : 'major',
+        type : 'string',
+        width : 50
+      },
+      {
+        caption : 'id',
+        type : 'string',
+        width : 5
+      }
+      ];
+
+      var query = 'select * from p_time';
+      connection.query(query, function(err, rows){
+        arr = [];
+        for(i = 0; i<rows.length; i++){
+          major = rows[i].major;
+          id = rows[i].id;
+          a = [major, id];
+          arr.push(a);
+        }
+        conf.rows = arr;
+        var result = nodeExcel.execute(conf);
+        res.setHeader('Content-Type', 'application/vnd.openxmlformates');
+        res.setHeader('Content-Disposition', 'attachment; filename = '+ fileID + '.xlsx');
+        res.end(result, 'binary');
+      });
+      console.log("-----------"+ fileID + " download END-----------")
+    }
+    else{
+      console.log("file id not match : -----------"+ fileID + " download START-----------")
+      conf.cols = [{
+        caption : '',
+        type : 'string',
+        width : 50
+      }];
+
+      arr = [];
+      conf.rows = arr;
+      var result = nodeExcel.execute(conf);
+      res.setHeader('Content-Type', 'application/vnd.openxmlformates');
+      res.setHeader('Content-Disposition', 'attachment; filename = '+ fileID + '.xlsx');
+      res.end(result, 'binary');
+      console.log("file id not match : -----------"+ fileID + " download ENDX-----------")
+    }
+
+  }
+});
+
+/*
 router.get('/download/:fileID', function(req, res, next){
   var id = req.params.fileID;
   var re = req.path;
@@ -265,7 +379,7 @@ router.get('/download/:fileID', function(req, res, next){
     res.download('./public/download/'+id + ".xlsx");
     console.log("-----------" + id + " download END -----------");    
   }*/
-});
+/*});*/
 
 router.get('/cal_major',function(req,res,next){
     majordb.majorinput();

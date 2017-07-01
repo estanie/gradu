@@ -33,7 +33,30 @@
       </div>
 
       <div id="main_dpage" style="margin-top: 5%;">
-        <p> * 현재 등록된 호실자료 피벗</p>
+        <b><p> * 현재 등록된 호실자료 피벗</p></b>
+        
+        <table width="90%" align="center" style="text-align: center;">
+            <%
+            if(rows == undefined) {%>
+              <p>해당 데이터가 존재하지 않습니다.</p>
+            <% }
+            else{ %>
+              <tr style="background-color: black; color: white; font-weight: bolder;">
+                <th>major</th> <th>id</th>
+              </tr>
+            <% 
+              for(var i=0; i<rows.length; i++){
+                var item = rows[i];
+            %>
+              <tr><!-- table 맞게 수정해야함-->
+                  <td><%=item.major%></td>
+                  <td><%=item.id%></td>
+              </tr>
+            <%
+              }
+            }
+            %>
+      </table>
         
       </div>
 
