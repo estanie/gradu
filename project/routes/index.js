@@ -9,6 +9,7 @@ var connection = mysql.createConnection(dbconfig);
 var mime = require('mime');
 let exceldb = require('./exceltodb.js');
 let majordb = require('./majortodb.js');
+let divmajor = require('./dividemajor.js');
 
 var log = {};
 var result = 0;
@@ -266,6 +267,15 @@ router.get('/download/:fileID', function(req, res, next){
   }*/
 });
 
+router.get('/cal_major',function(req,res,next){
+    majordb.majorinput();
+});
+
+router.get('/test',function(req,res,next){
+    divmajor.majordivide();
+
+});
+
 router.post('/', function(req, res, next){
 
     connection.query('select log_id, log_pw from login', function(err, rows) {
@@ -345,8 +355,8 @@ router.post('/upload', function(req, res, next) {
       });
       form.parse(req);
 
-      //exceldb.dbinput();
-      majordb.majorinput();
+      exceldb.dbinput();
+
 });
 
 module.exports = router;

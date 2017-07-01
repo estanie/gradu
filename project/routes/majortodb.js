@@ -28,8 +28,7 @@ module.exports = {
         });
 
         let create = 'create table ' + filename + '( major_class VARCHAR(15), major_id VARCHAR(10),' +
-            ' student_id VARCHAR(10),' +
-            ' first_major VARCHAR(30) ) default character set utf8mb4 collate utf8mb4_general_ci';
+            ' student_id VARCHAR(10) ) default character set utf8mb4 collate utf8mb4_general_ci';
         console.log("create: " + create);
         connection.query(create, function (err) {
             if (err) throw err;
@@ -61,6 +60,7 @@ module.exports = {
             //major_id
             cell_address = (ALPHA[3]+i).toString();
             cell = worksheet[cell_address];
+            cell_value = (cell == null)?0:cell.v;
 
             data[1] = cell_value;
             //student_id
@@ -70,14 +70,9 @@ module.exports = {
             cell_value = (cell == null)?0:cell.v;
             data[2] = cell_value;
 
-            //first_major
-            cell_address = (ALPHA[10]+i).toString();
-            cell = worksheet[cell_address];
-            cell_value = (cell == null)?0:cell.v;
-            data[3] = cell_value;
             if (end)
                 break;
-            let ins = 'INSERT INTO ' + filename + ' VALUES (?,?,?,?)';
+            let ins = 'INSERT INTO ' + filename + ' VALUES (?,?,?)';
             ins = mysql.format(ins, data);
             connection.query(ins, function (err) {
                 if (err) throw err;
